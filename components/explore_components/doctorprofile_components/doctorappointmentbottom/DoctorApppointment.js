@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Import Ionicons from expo-icons
 import FeesInformation from './FeesInformation';
-import BookAppointmentButton from './BookAppointmentButton'
-const DoctorAppointment = ({ onPressBack, onPressAppointment }) => {
+import BookAppointmentButton from './BookAppointmentButton';
+
+const DoctorAppointment = ({ navigation }) => { // Receive navigation prop here
   // Sample data for time slots
   const morningSlots = [
     '09:00 AM',
@@ -28,13 +29,13 @@ const DoctorAppointment = ({ onPressBack, onPressAppointment }) => {
 
   // Sample data for dates (assuming next 7 days)
   const dates = [
-    { id: '1', date: ' 24', day: 'Mon' },
-    { id: '2', date: ' 25', day: 'Tue' },
-    { id: '3', date: ' 26', day: 'Wed' },
-    { id: '4', date: ' 27', day: 'Thur' },
-    { id: '5', date: ' 28', day: 'Fri' },
-    { id: '6', date: ' 29', day: 'Sat' },
-    { id: '7', date: ' 30', day: 'Sun' },
+    { id: '1', date: '24', day: 'Mon' },
+    { id: '2', date: '25', day: 'Tue' },
+    { id: '3', date: '26', day: 'Wed' },
+    { id: '4', date: '27', day: 'Thur' },
+    { id: '5', date: '28', day: 'Fri' },
+    { id: '6', date: '29', day: 'Sat' },
+    { id: '7', date: '30', day: 'Sun' },
   ];
 
   const renderDateItem = ({ item }) => (
@@ -46,14 +47,13 @@ const DoctorAppointment = ({ onPressBack, onPressAppointment }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={onPressBack} style={styles.backButton}>
-        <Ionicons name="arrow-back-outline" size={22}/>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+          <Ionicons name="arrow-back-outline" size={22}/>
         </TouchableOpacity>
-      
       </View>
 
       <ScrollView contentContainerStyle={styles.content}>
-      <Text style={styles.monthText}>May</Text>
+        <Text style={styles.monthText}>May</Text>
         <FlatList
           horizontal
           data={dates}
@@ -89,10 +89,11 @@ const DoctorAppointment = ({ onPressBack, onPressAppointment }) => {
             </View>
           ))}
         </View>
+
         <Text style={styles.slotsText}>Fees Information</Text>
         <FeesInformation/>
       </ScrollView>
-      <BookAppointmentButton title="Book Appointment" onPress={onPressAppointment} />
+      <BookAppointmentButton title="Book Appointment" onPress={() => navigation.navigate('Payment')} />
     </View>
   );
 };
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    paddingHorizontal:4,
+    paddingHorizontal: 4,
     borderTopRightRadius: 65,
     borderTopLeftRadius: 65,
     paddingBottom: 20,
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
   },
   monthText: {
     fontSize: 18,
-    fontWeight:'500'
+    fontWeight: '500',
   },
   content: {
     paddingHorizontal: 20,
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
     width: 60,
     borderRadius: 20,
     borderTopRightRadius: 0,
-    borderBottomLeftRadius:0
+    borderBottomLeftRadius: 0,
   },
   dateText: {
     fontSize: 16,
@@ -160,7 +161,7 @@ const styles = StyleSheet.create({
   timeSlotsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginHorizontal:20,
+    marginHorizontal: 20,
     marginTop: 10,
   },
   timeSlotItem: {

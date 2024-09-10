@@ -18,7 +18,4 @@ const Styles = StyleSheet.create({
     flexGrow: 1, // Use flexGrow instead of flex to ensure the ScrollView fills the screen
     backgroundColor: "#F9F9F9",
   },
-  content: { 
-    padding: 20,
-  },
 });

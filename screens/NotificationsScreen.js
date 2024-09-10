@@ -1,24 +1,20 @@
-import { View, Text,StyleSheet,TouchableOpacity,TextInput,Image } from 'react-native'
-import React from 'react'
-import LoginScreen from '../components/auth_components/login_components/Login';
-import SocialSignup from '../components/auth_components/social_auth_components/SocialSignUp';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import Notifications from '../components/notification_components/Notifications';
 
-const NotificationsScreen = () => {
+const NotificationsScreen = ({ navigation }) => {
   return (
-      <View style={styles.container}>
-        <LoginScreen/>
-        <SocialSignup/>
-      </View>
-    );
-  };
+    <View style={styles.container}>
+      <Notifications navigation={navigation} />
+    </View>
+  );
+};
 
-export default NotificationsScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    padding: 20,
+    backgroundColor: '#ffffff',
   },
-  
 });
+
+export default NotificationsScreen;

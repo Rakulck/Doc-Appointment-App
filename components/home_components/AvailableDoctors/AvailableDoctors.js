@@ -22,7 +22,7 @@ const AvailableDoctors = () => {
     <TouchableOpacity activeOpacity={0.9} style={styles.item} onPress={() => navigation.navigate('DoctorProfile', { doctor: item })}>
       <View style={styles.topContainer}>
         <Text style={styles.specialty}>{`Looking For Your ${item.specialty}`}</Text>
-        <Text style={styles.specialty}>Specialist Doctor</Text>
+        <Text style={styles.specialty}>Specialist Doctors</Text>
       </View>
       <View style={styles.bottomContainer}>
         <View style={styles.bottomLeftContainer}>

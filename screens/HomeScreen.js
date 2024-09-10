@@ -5,10 +5,10 @@ import AvailableDoctors from '../components/home_components/AvailableDoctors/Ava
 import RenderFacts from '../components/home_components/Facts/RenderFacts';
 import SpecialistsRender from '../components/home_components/Specialists/SpecialistsRender';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     return (
         <ScrollView contentContainerStyle={homeStyles.container}>
-            <TopBar />
+            <TopBar  navigation={navigation}/>
             {/* <Search /> */}
             <RenderFacts/>
             <SpecialistsRender />

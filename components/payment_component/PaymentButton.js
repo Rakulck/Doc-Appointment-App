@@ -1,11 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const StickyButton = ({ onPress, title }) => {
+const PaymentButton = ({ onPress }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onPress}>
-        <Text style={styles.buttonText}>{title}</Text>
+      <TouchableOpacity style={styles.appointmentButton} onPress={onPress}>
+        <Text style={styles.buttonText}>Pay</Text>
       </TouchableOpacity>
     </View>
   );
@@ -14,29 +14,29 @@ const StickyButton = ({ onPress, title }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    position: "absolute",
+    position: 'absolute',
     bottom: 20,
-    width: "100%",
-    justifyContent: "center"
+    width: '100%',
+    justifyContent: 'center',
   },
-  button: {
+  appointmentButton: {
     backgroundColor: '#18A0FB',
     paddingVertical: 15,
     paddingHorizontal: 50,
     borderRadius: 10,
-    width: "80%",
+    width: '80%',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    elevation: 5
+    elevation: 5,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 'bold',
   },
 });
 
-export default StickyButton;
+export default PaymentButton;

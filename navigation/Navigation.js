@@ -8,6 +8,10 @@ import ProfileScreen from '../screens/ProfileScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import DoctorProfile from '../screens/DoctorProfile';
 import NotificationsScreen from '../screens/NotificationsScreen';
+import ChatScreen from '../screens/ChatScreen';
+import Payment from '../screens/PaymentScreen';
+import DoctorAppointment from '../components/explore_components/doctorprofile_components/doctorappointmentbottom/DoctorApppointment';
+import MyProfile from '../screens/MyProfile';
 
 import Stethoscope_Selected from '../assets/icons/Stethoscope_Selected';
 import Stethoscope_Icon from '../assets/icons/Stethoscope_Icon';
@@ -58,7 +62,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Explore" component={ExploreScreen} options={{ headerShown: false, tabBarHideOnKeyboard: true }} />
       <Tab.Screen name="Notifications" component={NotificationsScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false, tabBarHideOnKeyboard: true }} />
     </Tab.Navigator>
   );
 };
@@ -68,6 +72,10 @@ const Navigation = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Main" component={TabNavigator} />
       <Stack.Screen name="DoctorProfile" component={DoctorProfile} />
+      <Stack.Screen name="ChatScreen" component={ChatScreen}/> 
+      <Stack.Screen name="DoctorAppointment" component={DoctorAppointment} />
+      <Stack.Screen name="Payment" component={Payment}/>
+      <Stack.Screen name="MyProfile" component={MyProfile}/>
     </Stack.Navigator>
   );
 };
